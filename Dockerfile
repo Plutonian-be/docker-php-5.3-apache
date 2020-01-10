@@ -108,7 +108,7 @@ RUN buildDeps=" \
       && make clean
 
 RUN echo "default_charset = " > $PHP_INI_DIR/php.ini \
-    && echo "date.timezone = America/Sao_Paulo" >> $PHP_INI_DIR/php.ini
+    && echo "date.timezone = Europe/Brussels" >> $PHP_INI_DIR/php.ini
 
 COPY docker-php-* /usr/local/bin/
 COPY apache2-foreground /usr/local/bin/

@@ -18,7 +18,7 @@ For PHP projects run through the command line interface (CLI), you can do the fo
 
 ### Create a `Dockerfile` in your PHP project
 
-    FROM orsolin/php:5.3-apache
+    FROM plutonianbe/php53-apache:latest
     COPY . /usr/src/myapp
     WORKDIR /usr/src/myapp
     CMD [ "php", "./your-script.php" ]
@@ -32,14 +32,14 @@ Then, run the commands to build and run the Docker image:
 
 For many simple, single file projects, you may find it inconvenient to write a complete `Dockerfile`. In such cases, you can run a PHP script by using the PHP Docker image directly:
 
-    docker run -it --rm --name my-running-script -v "$PWD":/usr/src/myapp -w /usr/src/myapp orsolin/php:5.3-apache php your-script.php
+    docker run -it --rm --name my-running-script -v "$PWD":/usr/src/myapp -w /usr/src/myapp plutonianbe/php53-apache:latest php your-script.php
 
 ### Installing modules
 
 To install additional modules use a `Dockerfile` like this:
 
 ``` Dockerfile
-FROM orsolin/php:5.3-apache
+FROM plutonianbe/php53-apache:latest
 
 # Installs curl
 RUN docker-php-ext-install curl
@@ -55,7 +55,7 @@ $ docker build -t my-php .
 
 If you don't want to include a `Dockerfile` in your project, it is sufficient to do the following:
 
-    docker run -it --rm --name my-php-app -v "$PWD":/var/www/html orsolin/php:5.3-apache
+    docker run -it --rm --name my-php-app -v "$PWD":/var/www/html plutonianbe/php53-apache:latest
 
 ## Credits
 
